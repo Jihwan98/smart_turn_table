@@ -8,6 +8,15 @@ import time
 import tkinter.messagebox as msgbox
 from tkinter import *
 
+# def getstatusoutput(cmd):
+#     process = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, stdin=subprocess.DEVNULL)
+#     out, _ = process.communicate()
+
+#     if out[-1:] == b'\n':
+#         out = out[:-1]
+
+#     return (process.returncode, out)
+
 def btnSend(event):
     try:
         email_id = email_ent.get().strip()
