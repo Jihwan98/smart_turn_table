@@ -8,7 +8,7 @@ import time
 import tkinter.messagebox as msgbox
 from tkinter import *
 
-def btnSend():
+def btnSend(event):
     try:
         email_id = email_ent.get().strip()
         print("email id :",email_id)
@@ -61,18 +61,19 @@ height = 200
 
 root = Tk()
 root.title("Device Connection Setting")
-root.geometry("{0}x{1}".format(width,height))
+root.geometry("{}x{}+{}+{}".format(width,height,int(1920/2-width/2),int(1080/2-height/2)))
 root.resizable(False, False)
 
 label1 = Label(root, text="email id를 입력해주세요")
 label1.place(x=width/2-75, y=height/2-50)
 
 email_ent = Entry(root, width=20)
+email_ent.bind("<Return>", btnSend)
 email_ent.place(x=width/2-75, y=height/2-25)
-
 
 send_btn = Button(root, width=5, text="전송", command=btnSend)
 send_btn.place(x=width/2-50, y=height-100)
 quit_btn = Button(root, width=5, text="close", command=root.destroy)
 quit_btn.place(x=width/2, y=height-100)
+
 root.mainloop()
