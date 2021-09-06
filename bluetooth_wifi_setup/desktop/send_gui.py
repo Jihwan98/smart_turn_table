@@ -40,24 +40,25 @@ def btnSend():
             ports = lp.comports()
 
             if not ports:
-                sys.exit("활성화 된 COM포트가 없습니다")
+                #sys.exit("활성화 된 COM포트가 없습니다")
+                msgbox.showinfo("알림","활성화 된 COM포트가 없습니다")
+            else:
+                #for i in ports:
+                    # print(i)
 
-            #for i in ports:
-                # print(i)
+                # 사용할 포트
+                port = ports[0].device
+                print("사용할 포트 :", port)
 
-            # 사용할 포트
-            port = ports[0].device
-            print("사용할 포트 :", port)
+                # 시리얼 통신
+                ser = serial.Serial(port, 9600, timeout = 1)
+                for i in data:
+                    ser.write(i.encode())
+                    # print("R: ", ser.readline())
 
-            # 시리얼 통신
-            ser = serial.Serial(port, 9600, timeout = 1)
-            for i in data:
-                ser.write(i.encode())
-                # print("R: ", ser.readline())
-
-            print("전송 완료")
-            ser.close()
-            msgbox.showinfo("알림", "전송 완료")
+                print("전송 완료")
+                ser.close()
+                msgbox.showinfo("알림", "전송 완료")
         else:
             print("email id를 입력해주세요")
             msgbox.showinfo("알림", "email id를 입력해주세요")
