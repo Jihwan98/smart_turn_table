@@ -2,7 +2,6 @@ import serial
 import serial.tools.list_ports as lp
 import subprocess
 import sys
-import time
 
 import tkinter.messagebox as msgbox
 from tkinter import *
@@ -18,7 +17,7 @@ def getstatusoutput(cmd):
 
     return (process.returncode, out)
 
-def btnSend(event):
+def btnSend():
     try:
         email_id = email_ent.get().strip()
         print("email id :",email_id)
@@ -66,6 +65,9 @@ def btnSend(event):
         print(ex)
         msgbox.showinfo("알림", "에러 발생 : {}".format(ex))
 
+def callback(event):
+    btnSend()
+
 width = 200
 height = 200
 
@@ -78,7 +80,7 @@ label1 = Label(root, text="email id를 입력해주세요")
 label1.place(x=width/2-75, y=height/2-50)
 
 email_ent = Entry(root, width=20)
-email_ent.bind("<Return>", btnSend)
+email_ent.bind("<Return>", callback)
 email_ent.place(x=width/2-75, y=height/2-25)
 
 send_btn = Button(root, width=5, text="전송", command=btnSend)
