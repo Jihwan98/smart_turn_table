@@ -1,4 +1,3 @@
-from typing import Collection
 import serial
 import serial.tools.list_ports as lp
 import subprocess
