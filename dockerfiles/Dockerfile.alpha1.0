@@ -1,0 +1,27 @@
+FROM balenalib/raspberrypi3:buster
+
+#Installing MATRIX Software
+WORKDIR /home/pi
+
+RUN apt update
+RUN apt-get install apt-transport-https build-essential curl
+RUN curl https://apt.matrix.one/doc/apt-key.gpg | sudo apt-key add -
+RUN echo "deb https://apt.matrix.one/raspbian $raspbian buster main" | sudo tee /etc/apt/sources.list.d/matrixlabs.list
+RUN apt-get update && apt-get install libmatrixio-creator-hal-dev
+
+# Installing ODAS
+RUN apt-get -y install g++ git cmake && \
+    apt-get -y install libfftw3-dev libconfig-dev libasound2-dev libjson-c-dev
+
+RUN git clone https://github.com/matrix-io/odas.git
+
+WORKDIR /home/pi/odas
+RUN git checkout yc/add-matrix-demo
+RUN mkdir build
+WORKDIR /home/pi/odas/build
+RUN cmake ..
+RUN make
+WORKDIR /home/pi/odas/bin
+
+# *******Change this command to what you want*******
+CMD ["/bin/echo", "*********Edit CMD inside the Dockerfile*********"]

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>    
+
+
+  <meta charset="utf-8">
+  <title>Alpha</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+  <link href="img/alpha-icon2.png" rel="icon">
+  <link href="img/alpha-icon2.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+    Theme Name: Rapid
+    Theme URL: https://bootstrapmade.com/rapid-multipurpose-bootstrap-business-template/
+    Author: BootstrapMade.com
+    License: https://bootstrapmade.com/license/
+  ======================================================= -->
+
+  <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-storage.js"></script>
+
+
+</head>
+
+<body  class="section-bg">
+  <!--==========================
+  Header
+  ============================-->
+  <header id="header">
+
+    <div id="topbar">
+      <div class="container">
+        <div class="social-links">
+          <span id="container1">
+            <input id="userLoginEmail" type="email" placeholder="Email">
+    
+            <input id="userLoginPassword" type="password" placeholder="Password">
+    
+            <button id="btnLogin" class="btn btn-action">
+                log in
+            </button>
+    
+            <button id="btnSignUp" class="btn btn-action">
+                Sign Up
+            </button>
+    
+          </span>
+      
+          <span id="whenSignedOut">
+              <button id="btnGoogle" class="btn btn-action google"><i class="fa fa-google"></i></button>
+          </span>
+      
+          <span id="whenSignedIn" hidden="true">
+              <span id="userDetails"></span>
+              <button id="signOutBtn" class="btn btn-action">Log out</button>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="logo float-left">
+        <!-- Uncomment beow if you prefer to use an image logo -->
+        <h1 class="text-light"><a href="#intro" class="scrollto"><span>Alpha</span></a></h1>
+        <!-- <a href="#header" class="scrollto"><img src="img/logo.png" alt="" class="img-fluid"></a> -->
+      </div>
+
+      <nav class="main-nav float-right d-none d-lg-block">
+        <ul>
+          <li><a href="#" id="login_popup" onclick='window.open("login.html","log in","width=450,height=400,left=100,top=50")'>log in</a></li>
+          <li id="logout_li" style="display: none;"><a href="#" id="signOutBtn_li">log out</a></button></li>
+          
+          <li class="active"><a href="#intro">Home</a></li>
+          <!-- <li><a href="#" onclick='window.open("wifi_setting.html","txt_create","width=450,height=400,left=100,top=50")' id="Wifi">Wifi Setting</a></li> -->
+          <!-- <li><a href="#portfolio">Setting</a></li> -->
+        
+  
+          <!-- <li><a href="#footer">Contact Us</a></li> -->
+        </ul>
+      </nav><!-- .main-nav -->
+      
+    </div>
+  </header><!-- #header -->
+
+  <!--==========================
+    Intro Section
+  ============================-->
+  <section id="intro">
+    <div class="container d-flex h-100">
+      <div class="display-at-center text-center justify-content-center align-self-center">
+        <!-- <div class="col-md-6 intro-info order-md-first order-last"> -->
+        <div class="intro-info">
+          <h2>Smart Turn Table<br><span>Track my voice</span></h2>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- #intro -->
+
+  
+
+
+
+  <main id="main">
+
+  <!--==========================
+    Footer
+  ============================-->
+  <section id="portfolio" class="section-bg">
+    <div class="container">
+      <div class="footer-top">
+              
+        <div class="my-setting" id="setting_section">
+          
+          <div class="form display-at-center text-center justify-content-center align-self-center">
+            <h1>Setting please</h1>
+            <h2>Choose your smart display device in your home</h2>
+            
+                <!-- <span><button onclick=Google(); class="primary" >Google</button></span> -->
+                <span><button onclick=Apple(); class="primary" >Apple</button></span>
+                <!-- <span><button onclick=Amazon(); class="primary">Amazon</button></span> -->
+                <span><button onclick=Hoban(); class="primary">Hoban</button></span>
+                <span><button onclick=Make(); class="primary">etc..</button></span>
+            
+            <div id="js">
+                <script>
+                    document.write('<div id="cmd_recommend"><h3>Recommended trigger word to your device is \
+                      "' + "<span id='cmd'>a</span>" +'".<br> Do you want to set up this to your trigger word?\
+                      <br><button class = "y" id="cmd_yes">Yes</button><button onclick=Make() class = "y";>No</button></div>');
+                </script>
+            </div>
+        
+            <!-- <h3 id="end">설정이 완료되었습니다</h3> -->
+        
+            <div class="make">
+              <!-- text command -->
+                <div>    
+                    <h3>Type your preferred trigger word</h3>
+                    <div class="button-center">
+                        <input type="textfield" id="Command_text" class = "wri" placeholder="Enter command">
+                        <button class = "ok" id="saveButton">submit</button>
+                    </div>
+                </div>
+                <!-- record voice -->
+                <div>
+                  <h3>Record your trigger word</h3>
+                  <div id="record_section" class="button-center">
+                    <div class="btn_section">
+                      <button id="record" class="ok">Record</button>
+                      <button id="stop" class="ok">Stop</button>
+                    </div>
+                    <div id="sound-clips"></div>
+                    
+                    <!-- <input type="file" onchange="openFile(event)"> -->
+                    <!-- <input multiple="multiple" type="file" name="filename[]"/> -->
+                    <button class = "ok" id = "select">Select File</button>
+                    <button class = "ok" id = "upload">Upload</button>
+                    <ul id="file_num"></ul>
+                  </div>
+                </div>
+            
+            </div>
+
+        </div>
+
+      </div>
+    </div>
+    </div>
+    </section>
+
+    <section id="mode_section" class="section-bg">
+      <div class="container">
+        <div class="footer-top">
+          <div class="form display-at-center text-center justify-content-center align-self-center">
+            <h1>Set Mode</h1>
+            <h2 id="current_mode"></h2>
+            <span><button id="mode_normal" class="primary">Normal Mode</button></span>
+            <span><button id="mode_security" class="primary">Security Mode</button></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <a href="https://drive.google.com/file/d/1286npYXa2ymGJF1sslusAen2QAIr8A8y/view?usp=sharing" target="_blank" id="exe_download"><button>exe file 다운로드</button></a>
+
+    <!-- <section id="wifi_section" class="section-bg">
+      <div class="container">
+        <div class="form display-at-center text-center justify-content-center align-self-center">
+          <h1>Wifi Setting</h1>
+          <input placeholder="Wifi ID" id="Wifi_ID"><br>
+          <input placeholder="Wifi Password" id="Wifi_PW"><br>
+          <button id="create">Create</button>
+        </div>
+      </div>
+    </section> -->
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  <!-- Uncomment below i you want to use a preloader -->
+  <!-- <div id="preloader"></div> -->
+
+  <!-- JavaScript Libraries -->
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/jquery/jquery-migrate.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/mobile-nav/mobile-nav.js"></script>
+  <script src="lib/wow/wow.min.js"></script>  
+  <script src="lib/waypoints/waypoints.min.js"></script>
+  <script src="lib/counterup/counterup.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="lib/isotope/isotope.pkgd.min.js"></script>
+  <script src="lib/lightbox/js/lightbox.min.js"></script>
+  <!-- Contact Form JavaScript File -->
+  <script src="contactform/contactform.js"></script>
+
+  
+</body>
+
+<script src="js/main.js"></script>
+<script src="js/cmd_set.js"></script>
+<script src="js/app.js"></script>
+<script src="js/record.js"></script>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+    <!-- <script type="text/javascript">
+        function close(){
+            window.opener.location.href="index.html";}
+    </script> -->
+
+    <!-- onunload="close()" -->
+
+</head>
+
+<body style="margin-top: 20px; margin-bottom: 20px;">
+    <div class="container">
+        <div id="userLoginWrap">
+            <div class="card">
+                <article class="card-body" id="loginScreen">
+                    <h4 class="card-title mb-4 mt-1">로그인</h4>
+
+                    <span id="whenSignedOut">
+                        <button id="btnGoogle" class="btn btn-block btn-outline-danger"><i class="fab fa-google"></i> 구글 로그인</button>
+                    </span>
+                    
+                    <span id="whenSignedIn" hidden="true">
+                        <span id="userDetails"></span>
+                        <button id="signOutBtn" class="btn btn-secondary btn-sm">Log out</button>
+                    </span>
+
+                    <br>
+
+                    <div id="container1">
+
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Email" type="email" id="userLoginEmail">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Password" type="password" id="userLoginPassword">
+                        </div>
+
+
+                        <button id="btnLogin" class="btn btn-primary btn-block">
+                            log in
+                        </button>
+
+                        <button id="btnSignUp" class="btn btn-secondary btn-block">
+                            Sign Up
+                        </button>
+
+                        <button id="btnLogout" class="btn btn-action" hidden="true">
+                            Log out
+                        </button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+
+    
+    <script src="js/login_popup.js"></script>
+
+
+
+</body>
+
+
+</html>
